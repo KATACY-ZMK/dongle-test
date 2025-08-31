@@ -1,0 +1,15 @@
+file_format: "1"
+id: dongle-test
+name: charly-test
+type: shield
+url: https://github.com/KATACY-ZMK/dongle-test
+requires: [seeeduino_xiao_ble]
+features:
+  - keys
+  - encoder
+  - backlight
+  - pointer
+  - studio
+siblings:
+  - dongle-test_r
+  - dongle-test_l

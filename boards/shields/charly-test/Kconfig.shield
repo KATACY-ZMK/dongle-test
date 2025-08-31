@@ -1,0 +1,5 @@
+config SHIELD_DONGLETEST_R
+    def_bool $(shields_list_contains,dongle-test_r)
+
+config SHIELD_DONGLETEST_L
+    def_bool $(shields_list_contains,dongle-test_l)

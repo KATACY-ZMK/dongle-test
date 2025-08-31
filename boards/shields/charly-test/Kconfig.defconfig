@@ -1,0 +1,16 @@
+if SHIELD_DONGLETEST_R
+
+config ZMK_KEYBOARD_NAME
+    default "dongle-test"
+
+config ZMK_SPLIT_ROLE_CENTRAL
+    default y
+
+endif
+
+if SHIELD_DONGLETEST_L || SHIELD_DONGLETEST_R
+
+config ZMK_SPLIT
+    default y
+
+endif
