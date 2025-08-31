@@ -1,4 +1,7 @@
 #include "dongle-test.dtsi"
+&default_transform {
+    col-offset = <16>;
+};
 
 
     &kscan0 {
