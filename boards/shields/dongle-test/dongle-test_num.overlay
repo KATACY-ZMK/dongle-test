@@ -17,10 +17,10 @@
         <&gpio0 02 GPIO_ACTIVE_HIGH>;  // IO7
     };
 
-&left1_encoder {
-   status = "disabled";
+&num1_encoder {
+   status = "okay";
 };
-&left2_encoder {
+&num2_encoder {
    status = "okay";
 };
 
