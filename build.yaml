@@ -24,4 +24,6 @@ include:
   - board: seeeduino_xiao_ble
     shield: dongle-test_l
   - board: seeeduino_xiao_ble
+    shield: dongle-num
+  - board: seeeduino_xiao_ble
     shield: settings_reset

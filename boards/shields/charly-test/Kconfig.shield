@@ -3,3 +3,6 @@ config SHIELD_DONGLETEST_R
 
 config SHIELD_DONGLETEST_L
     def_bool $(shields_list_contains,dongle-test_l)
+
+config SHIELD_DONGLETEST_NUM
+    def_bool $(shields_list_contains,dongle-test_num)
