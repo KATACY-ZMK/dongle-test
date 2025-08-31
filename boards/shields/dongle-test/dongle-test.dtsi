@@ -56,14 +56,14 @@
         status = "disabled";
     };
 
-    num1_encoder: encoder_right1 {
+    num1_encoder: encoder_num1 {
         compatible = "alps,ec11";
         a-gpios = <&gpio0 9 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
         b-gpios = <&gpio0 10 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
         steps = <24>;
         status = "disabled";
     };
-    num2_encoder: encoder_right2 {
+    num2_encoder: encoder_num2 {
         compatible = "alps,ec11";
         a-gpios = <&gpio0 31 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
         b-gpios = <&gpio1 03 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
