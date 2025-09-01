@@ -99,11 +99,12 @@
         };
 
        double00_macro: double00_macro {
-            compatible = "zmk,behavior-string";
-            #binding-cells = <0>;
-            string = "00";
-        };
+        // ↓ この行が最も重要です
+        compatible = "zmk,behavior-string";
+        #binding-cells = <0>;
+        string = "00";
     };
+};
 };
 
 
