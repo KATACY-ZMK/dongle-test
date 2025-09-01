@@ -98,12 +98,12 @@
             tap-ms = <10>;
         };
 
-        double00_macro: takataka_macro {
-            compatible = "zmk,behavior-string";
-            #binding-cells = <0>;
-            string = "00";
-        };
-    };
+       double00_macro: double00_macro {
+        compatible = "zmk,behavior-string";
+        #binding-cells = <0>;
+        string = "00";
+    　　};
+　　};
 };
 
 / {
