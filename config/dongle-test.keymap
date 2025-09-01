@@ -99,12 +99,13 @@
         };
 
        double00_macro: double00_macro {
-        compatible = "zmk,behavior-string";
-        #binding-cells = <0>;
-        string = "00";
+            compatible = "zmk,behavior-string";
+            #binding-cells = <0>;
+            string = "00";
     　　};
 　　};
 };
+
 
 / {
     keymap {
