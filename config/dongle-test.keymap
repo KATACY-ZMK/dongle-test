@@ -99,16 +99,13 @@
         };
 
        double00_macro: double00_macro {
-        // ↓ この行が最も重要です
-        compatible = "zmk,behavior-string";
-        #binding-cells = <0>;
-        string = "00";
+            compatible = "zmk,behavior-string";
+            #binding-cells = <0>;
+            string = "00";
+        };
     };
-};
-};
 
 
-/ {
     keymap {
         compatible = "zmk,keymap";
 
@@ -141,12 +138,13 @@
 &to 2         &kp LCTRL       &kp LEFT_WIN  &kp LEFT_ALT  &mkp MB1      &mkp MB2      &mo 1   &lt 2 BACKSPACE  &kp SPACE  &kp LEFT   &kp DOWN    &kp RIGHT_ARROW  &kp A             &kp A              &kp A          &kp A      &kp A
             >;
 
-            sensor-bindings = <
-                &inc_dec_kp LEFT_ARROW RIGHT_ARROW
-                &inc_dec_kp UP_ARROW   DOWN_ARROW
-                &inc_dec_kp LEFT_ARROW RIGHT_ARROW
-                &inc_dec_kp UP_ARROW   DOWN_ARROW
-            >;
+            sensor-bindings =
+                <&inc_dec_kp LEFT_ARROW RIGHT_ARROW>,
+                <&inc_dec_kp UP_ARROW DOWN_ARROW>,
+                <&inc_dec_kp LEFT_ARROW RIGHT_ARROW>,
+                <&inc_dec_kp UP_ARROW DOWN_ARROW>,
+                <&mouse_scrl SCRL_UP SCRL_DOWN>,
+                <&mouse_scrl SCRL_UP SCRL_DOWN>;
         };
 
         MOUSE {
@@ -159,12 +157,13 @@
 &to 2         &kp LCTRL       &kp LEFT_WIN  &kp LEFT_ALT  &mkp MB1      &mkp MB2      &mo 1   &lt 2 BACKSPACE  &kp SPACE  &kp LEFT   &kp DOWN    &kp RIGHT_ARROW  &kp A             &kp A              &kp A          &kp A      &kp A
             >;
 
-            sensor-bindings = <
-                &inc_dec_kp LEFT_ARROW RIGHT_ARROW
-                &inc_dec_kp UP_ARROW   DOWN_ARROW
-                &inc_dec_kp LEFT_ARROW RIGHT_ARROW
-                &inc_dec_kp UP_ARROW   DOWN_ARROW
-            >;
+            sensor-bindings =
+                <&inc_dec_kp LEFT_ARROW RIGHT_ARROW>,
+                <&inc_dec_kp UP_ARROW DOWN_ARROW>,
+                <&inc_dec_kp LEFT_ARROW RIGHT_ARROW>,
+                <&inc_dec_kp UP_ARROW DOWN_ARROW>,
+                <&mouse_scrl SCRL_UP SCRL_DOWN>,
+                <&mouse_scrl SCRL_UP SCRL_DOWN>;
         };
 
         SNIPE {
@@ -177,12 +176,13 @@
 &to 2         &kp LCTRL       &kp LEFT_WIN  &kp LEFT_ALT  &mkp MB1      &mkp MB2      &mo 1   &lt 2 BACKSPACE  &kp SPACE  &kp LEFT   &kp DOWN    &kp RIGHT_ARROW  &kp A             &kp A              &kp A          &kp A      &kp A
             >;
 
-            sensor-bindings = <
-                &inc_dec_kp LEFT_ARROW RIGHT_ARROW
-                &inc_dec_kp UP_ARROW   DOWN_ARROW
-                &inc_dec_kp LEFT_ARROW RIGHT_ARROW
-                &inc_dec_kp UP_ARROW   DOWN_ARROW
-            >;
+            sensor-bindings =
+                <&inc_dec_kp LEFT_ARROW RIGHT_ARROW>,
+                <&inc_dec_kp UP_ARROW DOWN_ARROW>,
+                <&inc_dec_kp LEFT_ARROW RIGHT_ARROW>,
+                <&inc_dec_kp UP_ARROW DOWN_ARROW>,
+                <&mouse_scrl SCRL_UP SCRL_DOWN>,
+                <&mouse_scrl SCRL_UP SCRL_DOWN>;
         };
 
         SCROLL {
@@ -195,12 +195,13 @@
 &to 2         &kp LCTRL       &kp LEFT_WIN  &kp LEFT_ALT  &mkp MB1      &mkp MB2      &mo 1   &lt 2 BACKSPACE  &kp SPACE  &kp LEFT   &kp DOWN    &kp RIGHT_ARROW  &kp A             &kp A              &kp A          &kp A      &kp A
             >;
 
-            sensor-bindings = <
-                &inc_dec_kp LEFT_ARROW RIGHT_ARROW
-                &inc_dec_kp UP_ARROW   DOWN_ARROW
-                &inc_dec_kp LEFT_ARROW RIGHT_ARROW
-                &inc_dec_kp UP_ARROW   DOWN_ARROW
-            >;
+            sensor-bindings =
+                <&inc_dec_kp LEFT_ARROW RIGHT_ARROW>,
+                <&inc_dec_kp UP_ARROW DOWN_ARROW>,
+                <&inc_dec_kp LEFT_ARROW RIGHT_ARROW>,
+                <&inc_dec_kp UP_ARROW DOWN_ARROW>,
+                <&mouse_scrl SCRL_UP SCRL_DOWN>,
+                <&mouse_scrl SCRL_UP SCRL_DOWN>;
         };
 
         SCROLL_WARP {
@@ -213,12 +214,13 @@
 &to 2         &kp LCTRL       &kp LEFT_WIN  &kp LEFT_ALT  &mkp MB1      &mkp MB2      &mo 1   &lt 2 BACKSPACE  &kp SPACE  &kp LEFT   &kp DOWN    &kp RIGHT_ARROW  &kp A             &kp A              &kp A          &kp A      &kp A
             >;
 
-            sensor-bindings = <
-                &inc_dec_kp LEFT_ARROW RIGHT_ARROW
-                &inc_dec_kp UP_ARROW   DOWN_ARROW
-                &inc_dec_kp LEFT_ARROW RIGHT_ARROW
-                &inc_dec_kp UP_ARROW   DOWN_ARROW
-            >;
+            sensor-bindings =
+                <&inc_dec_kp LEFT_ARROW RIGHT_ARROW>,
+                <&inc_dec_kp UP_ARROW DOWN_ARROW>,
+                <&inc_dec_kp LEFT_ARROW RIGHT_ARROW>,
+                <&inc_dec_kp UP_ARROW DOWN_ARROW>,
+                <&mouse_scrl SCRL_UP SCRL_DOWN>,
+                <&mouse_scrl SCRL_UP SCRL_DOWN>;
         };
 
         SCROLL_SNIPE {
@@ -231,12 +233,13 @@
 &to 2         &kp LCTRL       &kp LEFT_WIN  &kp LEFT_ALT  &mkp MB1      &mkp MB2      &mo 1   &lt 2 BACKSPACE  &kp SPACE  &kp LEFT   &kp DOWN    &kp RIGHT_ARROW  &kp A             &kp A              &kp A          &kp A      &kp A
             >;
 
-            sensor-bindings = <
-                &inc_dec_kp LEFT_ARROW RIGHT_ARROW
-                &inc_dec_kp UP_ARROW   DOWN_ARROW
-                &inc_dec_kp LEFT_ARROW RIGHT_ARROW
-                &inc_dec_kp UP_ARROW   DOWN_ARROW
-            >;
+            sensor-bindings =
+                <&inc_dec_kp LEFT_ARROW RIGHT_ARROW>,
+                <&inc_dec_kp UP_ARROW DOWN_ARROW>,
+                <&inc_dec_kp LEFT_ARROW RIGHT_ARROW>,
+                <&inc_dec_kp UP_ARROW DOWN_ARROW>,
+                <&mouse_scrl SCRL_UP SCRL_DOWN>,
+                <&mouse_scrl SCRL_UP SCRL_DOWN>;
         };
     };
 };
