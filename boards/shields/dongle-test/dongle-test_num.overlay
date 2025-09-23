@@ -5,19 +5,16 @@
 
 
     &kscan0 {
-        compatible = "zmk,kscan-gpio-charlieplex";
-        interrupt-gpios = <&gpio0 3 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>; // IO2 = INTピン
 
         // Charlieplex用 5ピン定義 (IO0–IO4)
         gpios = 
-        <&gpio1 15 GPIO_ACTIVE_HIGH>,  // IO0
-        <&gpio1 14 GPIO_ACTIVE_HIGH>,  // IO1
-        <&gpio1 13 GPIO_ACTIVE_HIGH>,  // IO2
-        <&gpio1 12 GPIO_ACTIVE_HIGH>,  // IO3
-        <&gpio1 11 GPIO_ACTIVE_HIGH>,  // IO4
-        <&gpio0 29 GPIO_ACTIVE_HIGH>,  // IO5
-        <&gpio0 28 GPIO_ACTIVE_HIGH>,  // IO6
-        <&gpio0 02 GPIO_ACTIVE_HIGH>;  // IO7
+        <&xiao_d 10 GPIO_ACTIVE_HIGH>,  // IO0
+        <&xiao_d 9 GPIO_ACTIVE_HIGH>,  // IO1
+        <&xiao_d 8 GPIO_ACTIVE_HIGH>,  // IO2
+        <&xiao_d 7 GPIO_ACTIVE_HIGH>,  // IO3
+        <&xiao_d 6 GPIO_ACTIVE_HIGH>,  // IO4
+
+        interrupt-gpios = <&xiao_d 1 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>; // IO2 = INTピン
     };
 
 &num1_encoder {
