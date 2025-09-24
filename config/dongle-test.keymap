@@ -116,7 +116,7 @@
 
         default_layer {
             bindings = <
-&kp C_MUTE    &kp LG(ESCAPE)  &kp F1        &kp F2        &kp F3        &kp F4        &kp F5  &kp F6           &kp F7     &kp F8     &kp F9      &kp F10          &kp F11           &kp F12            &kp A          &kp B            &mo 1            &kp ESCAPE       &bt BT_SEL 0     &bt BT_SEL 1     &bt BT_SEL 2  &bt BT_SEL 3
+&kp C_MUTE    &kp ESCAPE      &kp F1        &kp F2        &kp F3        &kp F4        &kp F5  &kp F6           &kp F7     &kp F8     &kp F9      &kp F10          &kp F11           &kp F12            &kp A          &kp B            &mo 1            &kp ESCAPE       &bt BT_SEL 0     &bt BT_SEL 1     &bt BT_SEL 2  &bt BT_SEL 3
 &bt BT_SEL 0  &kp GRAVE       &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp NUMBER_4  &kp N5  &kp NUMBER_6     &kp N7     &kp N8     &kp N9      &kp N0           &kp MINUS         &kp EQUAL          &kp BACKSPACE  &kp DEL          &kp LS(LG(S))    &kp KP_NUMLOCK   &kp KP_SLASH     &kp KP_ASTERISK  &kp KP_MINUS
 &bt BT_SEL 1  &kp TAB         &kp Q         &kp W         &kp E         &kp R         &kp T   &kp Y            &kp U      &kp I      &kp O       &kp P            &kp LEFT_BRACKET  &kp RIGHT_BRACKET  &kp BACKSLASH  &kp PG_UP        &kp LA(TAB)      &kp KP_NUMBER_7  &kp KP_NUMBER_8  &kp KP_NUMBER_9  &kp KP_PLUS
 &bt BT_SEL 2  &kp CAPSLOCK    &kp A         &kp S         &kp D         &kp F         &kp G   &kp H            &kp J      &kp K      &kp L       &kp SEMICOLON    &kp SQT           &kp ENTER          &kp PAGE_DOWN  &kp LS(LC(T))    &kp KP_N4        &kp KP_NUMBER_5  &kp KP_NUMBER_6  &kp KP_PLUS
