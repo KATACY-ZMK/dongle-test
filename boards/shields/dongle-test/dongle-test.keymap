@@ -129,7 +129,6 @@ bindings = <
                 <&inc_dec_kp UP_ARROW DOWN_ARROW>,
                 <&inc_dec_kp LEFT_ARROW RIGHT_ARROW>,
                 <&inc_dec_kp UP_ARROW DOWN_ARROW>,
-                <&mouse_scrl SCRL_UP SCRL_DOWN>,
                 <&mouse_scrl SCRL_UP SCRL_DOWN>;
         };
 
@@ -148,7 +147,6 @@ bindings = <
                 <&inc_dec_kp UP_ARROW DOWN_ARROW>,
                 <&inc_dec_kp LEFT_ARROW RIGHT_ARROW>,
                 <&inc_dec_kp UP_ARROW DOWN_ARROW>,
-                <&mouse_scrl SCRL_UP SCRL_DOWN>,
                 <&mouse_scrl SCRL_UP SCRL_DOWN>;
         };
 
@@ -167,7 +165,6 @@ bindings = <
                 <&inc_dec_kp UP_ARROW DOWN_ARROW>,
                 <&inc_dec_kp LEFT_ARROW RIGHT_ARROW>,
                 <&inc_dec_kp UP_ARROW DOWN_ARROW>,
-                <&mouse_scrl SCRL_UP SCRL_DOWN>,
                 <&mouse_scrl SCRL_UP SCRL_DOWN>;
         };
 
@@ -186,7 +183,6 @@ bindings = <
                 <&inc_dec_kp UP_ARROW DOWN_ARROW>,
                 <&inc_dec_kp LEFT_ARROW RIGHT_ARROW>,
                 <&inc_dec_kp UP_ARROW DOWN_ARROW>,
-                <&mouse_scrl SCRL_UP SCRL_DOWN>,
                 <&mouse_scrl SCRL_UP SCRL_DOWN>;
         };
 
@@ -205,7 +201,6 @@ bindings = <
                 <&inc_dec_kp UP_ARROW DOWN_ARROW>,
                 <&inc_dec_kp LEFT_ARROW RIGHT_ARROW>,
                 <&inc_dec_kp UP_ARROW DOWN_ARROW>,
-                <&mouse_scrl SCRL_UP SCRL_DOWN>,
                 <&mouse_scrl SCRL_UP SCRL_DOWN>;
         };
 
@@ -224,7 +219,6 @@ bindings = <
                 <&inc_dec_kp UP_ARROW DOWN_ARROW>,
                 <&inc_dec_kp LEFT_ARROW RIGHT_ARROW>,
                 <&inc_dec_kp UP_ARROW DOWN_ARROW>,
-                <&mouse_scrl SCRL_UP SCRL_DOWN>,
                 <&mouse_scrl SCRL_UP SCRL_DOWN>;
         };
 
@@ -243,7 +237,6 @@ bindings = <
                 <&inc_dec_kp UP_ARROW DOWN_ARROW>,
                 <&inc_dec_kp LEFT_ARROW RIGHT_ARROW>,
                 <&inc_dec_kp UP_ARROW DOWN_ARROW>,
-                <&mouse_scrl SCRL_UP SCRL_DOWN>,
                 <&mouse_scrl SCRL_UP SCRL_DOWN>;
         };
     };

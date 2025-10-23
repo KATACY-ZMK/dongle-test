@@ -63,17 +63,10 @@
         steps = <24>;
         status = "disabled";
     };
-    num2_encoder: encoder_num2 {
-        compatible = "alps,ec11";
-        a-gpios = <&gpio0 31 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
-        b-gpios = <&gpio1 03 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
-        steps = <24>;
-        status = "disabled";
-    };
 
     sensors: sensors {
         compatible = "zmk,keymap-sensors";
-        sensors = <&left1_encoder &left2_encoder &right1_encoder &right2_encoder>;
+        sensors = <&left1_encoder &left2_encoder &right1_encoder &right2_encoder &num1_encoder>;
         triggers-per-rotation = <6>;
     };
 

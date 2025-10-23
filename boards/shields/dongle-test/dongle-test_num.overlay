@@ -25,9 +25,7 @@
 &num1_encoder {
    status = "okay";
 };
-&num2_encoder {
-   status = "okay";
-};
+
 
 
 

@@ -206,12 +206,6 @@
       "name": "encoder_num1",
       "identifier": "encoder_num1",
       "enabled": false
-    },
-    {
-      "ref": "num2_encoder",
-      "name": "encoder_num2",
-      "identifier": "encoder_num2",
-      "enabled": false
     }
   ]
 }
