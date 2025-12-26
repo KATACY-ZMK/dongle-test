@@ -42,17 +42,31 @@
     };
 };
 
+/ {
+    /* ▼▼▼ 追加: ここで mouse_scrl を定義します ▼▼▼ */
+    behaviors {
+        mouse_scrl: mouse_scroll_sensor {
+            compatible = "zmk,behavior-sensor-rotate";
+            #sensor-binding-cells = <0>;
+            /* 時計回りで上、反時計回りで下スクロール (逆なら入れ替えてください) */
+            bindings = <&msc SCRL_UP>, <&msc SCRL_DOWN>;
+            /* スクロールの反応速度調整（必要に応じて変更） */
+            tap-ms = <20>;
+        };
+    };
+    /* ▲▲▲ 追加ここまで ▲▲▲ */
+
     keymap {
         compatible = "zmk,keymap";
 
         default_layer {
             bindings = <
-&kp C_MUTE    &kp LG(ESCAPE)  &kp F1        &kp F2        &kp F3        &kp F4        &kp F5  &kp F6           &kp F7     &kp F8     &kp F9      &kp F10          &kp F11           &kp F12            &kp A          &kp B       &mo 1      &mo 1       &bt BT_SEL 0  &bt BT_SEL 1     &bt BT_SEL 2  &bt BT_SEL 3
-&bt BT_SEL 0  &kp GRAVE       &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp NUMBER_4  &kp N5  &kp NUMBER_6     &kp N7     &kp N8     &kp N9      &kp N0           &kp MINUS         &kp EQUAL          &kp BACKSPACE  &kp DEL     &kp A      &kp KP_NUM  &kp KP_SLASH  &kp KP_ASTERISK  &kp KP_MINUS
-&bt BT_SEL 1  &kp TAB         &kp A         &kp W         &kp E         &kp R         &kp T   &kp Y            &kp U      &kp I      &kp O       &kp P            &kp LEFT_BRACKET  &kp RIGHT_BRACKET  &kp BACKSLASH  &kp PG_UP   &kp B      &kp KP_N7   &kp KP_N8     &kp KP_N9        &kp KP_PLUS
-&bt BT_SEL 2  &kp CAPSLOCK    &kp A         &kp S         &kp D         &kp F         &kp G   &kp H            &kp J      &kp K      &kp L       &kp SEMICOLON    &kp SQT           &kp ENTER          &kp PAGE_DOWN  &kp C       &kp KP_N4  &kp KP_N5   &kp KP_N6
-&to 1         &kp LEFT_SHIFT  &kp Z         &kp X         &kp C         &kp V         &kp B   &kp N            &kp M      &kp COMMA  &kp PERIOD  &kp SLASH        &kp RSHIFT        &kp UP_ARROW       &kp D          &kp KP_N1   &kp KP_N2  &kp KP_N3   &kp KP_ENTER
-&to 2         &kp LCTRL       &kp LEFT_WIN  &kp LEFT_ALT  &mkp MB1      &mkp MB2      &mo 1   &lt 2 BACKSPACE  &kp SPACE  &kp LEFT   &kp DOWN    &kp RIGHT_ARROW  &kp E             &kp KP_N0          &kp KP_N0      &kp KP_DOT
+&kp C_MUTE    &kp LG(ESCAPE)  &kp F1        &kp F2        &kp F3        &kp F4        &kp F5  &kp F6           &kp F7     &kp F8     &kp F9      &kp F10           &kp F11            &kp F12             &kp A          &kp B       &mo 1       &mo 1        &bt BT_SEL 0  &bt BT_SEL 1     &bt BT_SEL 2  &bt BT_SEL 3
+&bt BT_SEL 0  &kp GRAVE       &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp NUMBER_4  &kp N5  &kp NUMBER_6     &kp N7     &kp N8     &kp N9      &kp N0            &kp MINUS          &kp EQUAL           &kp BACKSPACE  &kp DEL      &kp A       &kp KP_NUM  &kp KP_SLASH  &kp KP_ASTERISK  &kp KP_MINUS
+&bt BT_SEL 1  &kp TAB         &kp A         &kp W         &kp E         &kp R         &kp T   &kp Y            &kp U      &kp I      &kp O       &kp P             &kp LEFT_BRACKET   &kp RIGHT_BRACKET   &kp BACKSLASH  &kp PG_UP    &kp B       &kp KP_N7   &kp KP_N8     &kp KP_N9        &kp KP_PLUS
+&bt BT_SEL 2  &kp CAPSLOCK    &kp A         &kp S         &kp D         &kp F         &kp G   &kp H            &kp J      &kp K      &kp L       &kp SEMICOLON     &kp SQT            &kp ENTER           &kp PAGE_DOWN  &kp C        &kp KP_N4   &kp KP_N5   &kp KP_N6
+&to 1         &kp LEFT_SHIFT  &kp Z         &kp X         &kp C         &kp V         &kp B   &kp N            &kp M      &kp COMMA  &kp PERIOD  &kp SLASH         &kp RSHIFT         &kp UP_ARROW        &kp D          &kp KP_N1    &kp KP_N2   &kp KP_N3   &kp KP_ENTER
+&to 2         &kp LCTRL       &kp LEFT_WIN  &kp LEFT_ALT  &mkp MB1      &mkp MB2      &mo 1   &lt 2 BACKSPACE  &kp SPACE  &kp LEFT   &kp DOWN    &kp RIGHT_ARROW   &kp E              &kp KP_N0           &kp KP_N0      &kp KP_DOT
             >;
 
             sensor-bindings =
@@ -60,17 +74,17 @@
                 <&inc_dec_kp UP_ARROW DOWN_ARROW>,
                 <&inc_dec_kp LEFT_ARROW RIGHT_ARROW>,
                 <&inc_dec_kp UP_ARROW DOWN_ARROW>,
-                <&mouse_scrl SCRL_UP SCRL_DOWN>;
+                <&mouse_scrl>; /* 修正: 引数を削除 */
         };
 
         layer_1 {
             bindings = <
-&kp C_MUTE    &kp LG(ESCAPE)  &kp F1        &kp F2        &kp F3        &kp F4        &kp F5  &kp F6           &kp F7     &kp F8     &kp F9      &kp F10          &kp F11           &kp F12            &kp A          &kp B      &mo 1  &kp A  &kp A  &kp A  &kp A  &kp A
-&bt BT_SEL 0  &kp GRAVE       &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp NUMBER_4  &kp N5  &kp NUMBER_6     &kp N7     &kp N8     &kp N9      &kp N0           &kp MINUS         &kp EQUAL          &kp BACKSPACE  &kp DEL    &kp A  &kp A  &kp A  &kp A  &kp A
-&bt BT_SEL 1  &kp TAB         &kp Q         &kp W         &kp E         &kp R         &kp T   &kp Y            &kp U      &kp I      &kp O       &kp P            &kp LEFT_BRACKET  &kp RIGHT_BRACKET  &kp BACKSLASH  &kp PG_UP  &kp A  &kp A  &kp A  &kp A  &kp A
-&bt BT_SEL 2  &kp CAPSLOCK    &kp A         &kp S         &kp D         &kp F         &kp G   &kp H            &kp J      &kp K      &kp L       &kp SEMICOLON    &kp SQT           &kp ENTER          &kp PAGE_DOWN  &kp A      &kp A  &kp A  &kp A
-&to 1         &kp LEFT_SHIFT  &kp Z         &kp X         &kp C         &kp V         &kp B   &kp N            &kp M      &kp COMMA  &kp PERIOD  &kp SLASH        &kp RSHIFT        &kp UP_ARROW       &kp A          &kp A      &kp A  &kp A  &kp A
-&to 2         &kp LCTRL       &kp LEFT_WIN  &kp LEFT_ALT  &mkp MB1      &mkp MB2      &mo 1   &lt 2 BACKSPACE  &kp SPACE  &kp LEFT   &kp DOWN    &kp RIGHT_ARROW  &kp A             &kp A              &kp A          &kp A
+&kp C_MUTE    &kp LG(ESCAPE)  &kp F1        &kp F2        &kp F3        &kp F4        &kp F5  &kp F6           &kp F7     &kp F8     &kp F9      &kp F10           &kp F11            &kp F12             &kp A          &kp B       &mo 1  &kp A  &kp A  &kp A  &kp A  &kp A
+&bt BT_SEL 0  &kp GRAVE       &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp NUMBER_4  &kp N5  &kp NUMBER_6     &kp N7     &kp N8     &kp N9      &kp N0            &kp MINUS          &kp EQUAL           &kp BACKSPACE  &kp DEL     &kp A  &kp A  &kp A  &kp A  &kp A
+&bt BT_SEL 1  &kp TAB         &kp Q         &kp W         &kp E         &kp R         &kp T   &kp Y            &kp U      &kp I      &kp O       &kp P             &kp LEFT_BRACKET   &kp RIGHT_BRACKET   &kp BACKSLASH  &kp PG_UP   &kp A  &kp A  &kp A  &kp A  &kp A
+&bt BT_SEL 2  &kp CAPSLOCK    &kp A         &kp S         &kp D         &kp F         &kp G   &kp H            &kp J      &kp K      &kp L       &kp SEMICOLON     &kp SQT            &kp ENTER           &kp PAGE_DOWN  &kp A       &kp A  &kp A  &kp A
+&to 1         &kp LEFT_SHIFT  &kp Z         &kp X         &kp C         &kp V         &kp B   &kp N            &kp M      &kp COMMA  &kp PERIOD  &kp SLASH         &kp RSHIFT         &kp UP_ARROW        &kp A          &kp A       &kp A  &kp A  &kp A
+&to 2         &kp LCTRL       &kp LEFT_WIN  &kp LEFT_ALT  &mkp MB1      &mkp MB2      &mo 1   &lt 2 BACKSPACE  &kp SPACE  &kp LEFT   &kp DOWN    &kp RIGHT_ARROW   &kp A              &kp A               &kp A          &kp A
             >;
 
             sensor-bindings =
@@ -78,17 +92,17 @@
                 <&inc_dec_kp UP_ARROW DOWN_ARROW>,
                 <&inc_dec_kp LEFT_ARROW RIGHT_ARROW>,
                 <&inc_dec_kp UP_ARROW DOWN_ARROW>,
-                <&mouse_scrl SCRL_UP SCRL_DOWN>;
+                <&mouse_scrl>; /* 修正: 引数を削除 */
         };
 
-        MOUSE {
+        layer_2 {
             bindings = <
-&kp C_MUTE      &kp LG(ESCAPE)  &kp F1        &kp F2        &kp F3        &kp F4        &kp F5           &kp F6        &kp F7     &kp F8      &kp F9           &kp F10        &kp F11           &kp F12            &kp A          &kp B      &mo 1  &kp A  &kp A  &kp A  &kp A  &kp A
-&bt BT_SEL 0    &kp GRAVE       &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp NUMBER_4  &kp N5           &kp NUMBER_6  &kp N7     &kp N8      &kp N9           &kp N0         &kp MINUS         &kp EQUAL          &kp BACKSPACE  &kp DEL    &kp A  &kp A  &kp A  &kp A  &kp A
-&bt BT_SEL 1    &kp TAB         &kp Q         &kp W         &kp E         &kp R         &kp T            &kp Y         &kp U      &kp I       &kp O            &kp P          &kp LEFT_BRACKET  &kp RIGHT_BRACKET  &kp BACKSLASH  &kp PG_UP  &kp A  &kp A  &kp A  &kp A  &kp A
-&bt BT_SEL 2    &kp CAPSLOCK    &kp A         &kp S         &kp D         &kp F         &kp G            &kp H         &kp J      &kp K       &kp L            &kp SEMICOLON  &kp SQT           &kp ENTER          &kp PAGE_DOWN  &kp A      &kp A  &kp A  &to 1
-&kp LEFT_SHIFT  &kp Z           &kp X         &kp C         &kp V         &kp B         &kp N            &kp M         &kp COMMA  &kp PERIOD  &kp SLASH        &kp RSHIFT     &kp UP_ARROW      &kp A              &kp A          &kp A      &kp A  &kp A  &to 2
-&kp LCTRL       &kp LEFT_WIN    &kp LEFT_ALT  &mkp MB1      &mkp MB2      &mo 1         &lt 2 BACKSPACE  &kp SPACE     &kp LEFT   &kp DOWN    &kp RIGHT_ARROW  &kp A          &kp A             &kp A
+&kp C_MUTE      &kp LG(ESCAPE)  &kp F1        &kp F2        &kp F3        &kp F4        &kp F5  &kp F6           &kp F7     &kp F8     &kp F9      &kp F10           &kp F11            &kp F12             &kp A          &kp B       &mo 1  &kp A  &kp A  &kp A  &kp A  &kp A
+&bt BT_SEL 0    &kp GRAVE       &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp NUMBER_4  &kp N5  &kp NUMBER_6     &kp N7     &kp N8     &kp N9      &kp N0            &kp MINUS          &kp EQUAL           &kp BACKSPACE  &kp DEL     &kp A  &kp A  &kp A  &kp A  &kp A
+&bt BT_SEL 1    &kp TAB         &kp Q         &kp W         &kp E         &kp R         &kp T   &kp Y            &kp U      &kp I      &kp O       &kp P             &kp LEFT_BRACKET   &kp RIGHT_BRACKET   &kp BACKSLASH  &kp PG_UP   &kp A  &kp A  &kp A  &kp A  &kp A
+&bt BT_SEL 2    &kp CAPSLOCK    &kp A         &kp S         &kp D         &kp F         &kp G   &kp H            &kp J      &kp K      &kp L       &kp SEMICOLON     &kp SQT            &kp ENTER           &kp PAGE_DOWN  &kp A       &kp A  &kp A  &to 1
+&kp LEFT_SHIFT  &kp Z           &kp X         &kp C         &kp V         &kp B         &kp N   &kp M            &kp COMMA  &kp PERIOD  &kp SLASH   &kp RSHIFT        &kp UP_ARROW       &kp A               &kp A          &kp A       &kp A  &kp A  &to 2
+&kp LCTRL       &kp LEFT_WIN    &kp LEFT_ALT  &mkp MB1      &mkp MB2      &mo 1         &lt 2 BACKSPACE  &kp SPACE  &kp LEFT   &kp DOWN    &kp RIGHT_ARROW   &kp A              &kp A               &kp A          &kp A
             >;
 
             sensor-bindings =
@@ -96,17 +110,17 @@
                 <&inc_dec_kp UP_ARROW DOWN_ARROW>,
                 <&inc_dec_kp LEFT_ARROW RIGHT_ARROW>,
                 <&inc_dec_kp UP_ARROW DOWN_ARROW>,
-                <&mouse_scrl SCRL_UP SCRL_DOWN>;
+                <&mouse_scrl>; /* 修正: 引数を削除 */
         };
 
-        SNIPE {
+        layer_3 {
             bindings = <
-&kp C_MUTE    &kp LG(ESCAPE)  &kp F1        &kp F2        &kp F3        &kp F4        &kp F5  &kp F6           &kp F7     &kp F8     &kp F9      &kp F10          &kp F11           &kp F12            &kp A          &kp B      &mo 1  &kp A  &kp A  &kp A  &kp A  &kp A
-&bt BT_SEL 0  &kp GRAVE       &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp NUMBER_4  &kp N5  &kp NUMBER_6     &kp N7     &kp N8     &kp N9      &kp N0           &kp MINUS         &kp EQUAL          &kp BACKSPACE  &kp DEL    &kp A  &kp A  &kp A  &kp A  &kp A
-&bt BT_SEL 1  &kp TAB         &kp Q         &kp W         &kp E         &kp R         &kp T   &kp Y            &kp U      &kp I      &kp O       &kp P            &kp LEFT_BRACKET  &kp RIGHT_BRACKET  &kp BACKSLASH  &kp PG_UP  &kp A  &kp A  &kp A  &kp A  &kp A
-&bt BT_SEL 2  &kp CAPSLOCK    &kp A         &kp S         &kp D         &kp F         &kp G   &kp H            &kp J      &kp K      &kp L       &kp SEMICOLON    &kp SQT           &kp ENTER          &kp PAGE_DOWN  &kp A      &kp A  &kp A  &kp A
-&to 1         &kp LEFT_SHIFT  &kp Z         &kp X         &kp C         &kp V         &kp B   &kp N            &kp M      &kp COMMA  &kp PERIOD  &kp SLASH        &kp RSHIFT        &kp UP_ARROW       &kp A          &kp A      &kp A  &kp A  &kp A
-&to 2         &kp LCTRL       &kp LEFT_WIN  &kp LEFT_ALT  &mkp MB1      &mkp MB2      &mo 1   &lt 2 BACKSPACE  &kp SPACE  &kp LEFT   &kp DOWN    &kp RIGHT_ARROW  &kp A             &kp A              &kp A          &kp A
+&kp C_MUTE    &kp LG(ESCAPE)  &kp F1        &kp F2        &kp F3        &kp F4        &kp F5  &kp F6           &kp F7     &kp F8     &kp F9      &kp F10           &kp F11            &kp F12             &kp A          &kp B       &mo 1  &kp A  &kp A  &kp A  &kp A  &kp A
+&bt BT_SEL 0  &kp GRAVE       &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp NUMBER_4  &kp N5  &kp NUMBER_6     &kp N7     &kp N8     &kp N9      &kp N0            &kp MINUS          &kp EQUAL           &kp BACKSPACE  &kp DEL     &kp A  &kp A  &kp A  &kp A  &kp A
+&bt BT_SEL 1  &kp TAB         &kp Q         &kp W         &kp E         &kp R         &kp T   &kp Y            &kp U      &kp I      &kp O       &kp P             &kp LEFT_BRACKET   &kp RIGHT_BRACKET   &kp BACKSLASH  &kp PG_UP   &kp A  &kp A  &kp A  &kp A  &kp A
+&bt BT_SEL 2  &kp CAPSLOCK    &kp A         &kp S         &kp D         &kp F         &kp G   &kp H            &kp J      &kp K      &kp L       &kp SEMICOLON     &kp SQT            &kp ENTER           &kp PAGE_DOWN  &kp A       &kp A  &kp A  &kp A
+&to 1         &kp LEFT_SHIFT  &kp Z         &kp X         &kp C         &kp V         &kp B   &kp N            &kp M      &kp COMMA  &kp PERIOD  &kp SLASH         &kp RSHIFT         &kp UP_ARROW        &kp A          &kp A       &kp A  &kp A  &kp A
+&to 2         &kp LCTRL       &kp LEFT_WIN  &kp LEFT_ALT  &mkp MB1      &mkp MB2      &mo 1   &lt 2 BACKSPACE  &kp SPACE  &kp LEFT   &kp DOWN    &kp RIGHT_ARROW   &kp A              &kp A               &kp A          &kp A
             >;
 
             sensor-bindings =
@@ -114,17 +128,17 @@
                 <&inc_dec_kp UP_ARROW DOWN_ARROW>,
                 <&inc_dec_kp LEFT_ARROW RIGHT_ARROW>,
                 <&inc_dec_kp UP_ARROW DOWN_ARROW>,
-                <&mouse_scrl SCRL_UP SCRL_DOWN>;
+                <&mouse_scrl>; /* 修正: 引数を削除 */
         };
 
-        SCROLL {
+        layer_4 {
             bindings = <
-&kp C_MUTE    &kp LG(ESCAPE)  &kp F1        &kp F2        &kp F3        &kp F4        &kp F5  &kp F6           &kp F7     &kp F8     &kp F9      &kp F10          &kp F11           &kp F12            &kp A          &kp B      &mo 1  &kp A  &kp A  &kp A  &kp A  &kp A
-&bt BT_SEL 0  &kp GRAVE       &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp NUMBER_4  &kp N5  &kp NUMBER_6     &kp N7     &kp N8     &kp N9      &kp N0           &kp MINUS         &kp EQUAL          &kp BACKSPACE  &kp DEL    &kp A  &kp A  &kp A  &kp A  &kp A
-&bt BT_SEL 1  &kp TAB         &kp Q         &kp W         &kp E         &kp R         &kp T   &kp Y            &kp U      &kp I      &kp O       &kp P            &kp LEFT_BRACKET  &kp RIGHT_BRACKET  &kp BACKSLASH  &kp PG_UP  &kp A  &kp A  &kp A  &kp A  &kp A
-&bt BT_SEL 2  &kp CAPSLOCK    &kp A         &kp S         &kp D         &kp F         &kp G   &kp H            &kp J      &kp K      &kp L       &kp SEMICOLON    &kp SQT           &kp ENTER          &kp PAGE_DOWN  &kp A      &kp A  &kp A  &kp A
-&to 1         &kp LEFT_SHIFT  &kp Z         &kp X         &kp C         &kp V         &kp B   &kp N            &kp M      &kp COMMA  &kp PERIOD  &kp SLASH        &kp RSHIFT        &kp UP_ARROW       &kp A          &kp A      &kp A  &kp A  &kp A
-&to 2         &kp LCTRL       &kp LEFT_WIN  &kp LEFT_ALT  &mkp MB1      &mkp MB2      &mo 1   &lt 2 BACKSPACE  &kp SPACE  &kp LEFT   &kp DOWN    &kp RIGHT_ARROW  &kp A             &kp A              &kp A          &kp A
+&kp C_MUTE    &kp LG(ESCAPE)  &kp F1        &kp F2        &kp F3        &kp F4        &kp F5  &kp F6           &kp F7     &kp F8     &kp F9      &kp F10           &kp F11            &kp F12             &kp A          &kp B       &mo 1  &kp A  &kp A  &kp A  &kp A  &kp A
+&bt BT_SEL 0  &kp GRAVE       &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp NUMBER_4  &kp N5  &kp NUMBER_6     &kp N7     &kp N8     &kp N9      &kp N0            &kp MINUS          &kp EQUAL           &kp BACKSPACE  &kp DEL     &kp A  &kp A  &kp A  &kp A  &kp A
+&bt BT_SEL 1  &kp TAB         &kp Q         &kp W         &kp E         &kp R         &kp T   &kp Y            &kp U      &kp I      &kp O       &kp P             &kp LEFT_BRACKET   &kp RIGHT_BRACKET   &kp BACKSLASH  &kp PG_UP   &kp A  &kp A  &kp A  &kp A  &kp A
+&bt BT_SEL 2  &kp CAPSLOCK    &kp A         &kp S         &kp D         &kp F         &kp G   &kp H            &kp J      &kp K      &kp L       &kp SEMICOLON     &kp SQT            &kp ENTER           &kp PAGE_DOWN  &kp A       &kp A  &kp A  &kp A
+&to 1         &kp LEFT_SHIFT  &kp Z         &kp X         &kp C         &kp V         &kp B   &kp N            &kp M      &kp COMMA  &kp PERIOD  &kp SLASH         &kp RSHIFT         &kp UP_ARROW        &kp A          &kp A       &kp A  &kp A  &kp A
+&to 2         &kp LCTRL       &kp LEFT_WIN  &kp LEFT_ALT  &mkp MB1      &mkp MB2      &mo 1   &lt 2 BACKSPACE  &kp SPACE  &kp LEFT   &kp DOWN    &kp RIGHT_ARROW   &kp A              &kp A               &kp A          &kp A
             >;
 
             sensor-bindings =
@@ -132,17 +146,17 @@
                 <&inc_dec_kp UP_ARROW DOWN_ARROW>,
                 <&inc_dec_kp LEFT_ARROW RIGHT_ARROW>,
                 <&inc_dec_kp UP_ARROW DOWN_ARROW>,
-                <&mouse_scrl SCRL_UP SCRL_DOWN>;
+                <&mouse_scrl>; /* 修正: 引数を削除 */
         };
 
-        SCROLL_WARP {
+        layer_5 {
             bindings = <
-&kp C_MUTE    &kp LG(ESCAPE)  &kp F1        &kp F2        &kp F3        &kp F4        &kp F5  &kp F6           &kp F7     &kp F8     &kp F9      &kp F10          &kp F11           &kp F12            &kp A          &kp B      &mo 1  &kp A  &kp A  &kp A  &kp A  &kp A
-&bt BT_SEL 0  &kp GRAVE       &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp NUMBER_4  &kp N5  &kp NUMBER_6     &kp N7     &kp N8     &kp N9      &kp N0           &kp MINUS         &kp EQUAL          &kp BACKSPACE  &kp DEL    &kp A  &kp A  &kp A  &kp A  &kp A
-&bt BT_SEL 1  &kp TAB         &kp Q         &kp W         &kp E         &kp R         &kp T   &kp Y            &kp U      &kp I      &kp O       &kp P            &kp LEFT_BRACKET  &kp RIGHT_BRACKET  &kp BACKSLASH  &kp PG_UP  &kp A  &kp A  &kp A  &kp A  &kp A
-&bt BT_SEL 2  &kp CAPSLOCK    &kp A         &kp S         &kp D         &kp F         &kp G   &kp H            &kp J      &kp K      &kp L       &kp SEMICOLON    &kp SQT           &kp ENTER          &kp PAGE_DOWN  &kp A      &kp A  &kp A  &kp A
-&to 1         &kp LEFT_SHIFT  &kp Z         &kp X         &kp C         &kp V         &kp B   &kp N            &kp M      &kp COMMA  &kp PERIOD  &kp SLASH        &kp RSHIFT        &kp UP_ARROW       &kp A          &kp A      &kp A  &kp A  &kp A
-&to 2         &kp LCTRL       &kp LEFT_WIN  &kp LEFT_ALT  &mkp MB1      &mkp MB2      &mo 1   &lt 2 BACKSPACE  &kp SPACE  &kp LEFT   &kp DOWN    &kp RIGHT_ARROW  &kp A             &kp A              &kp A          &kp A
+&kp C_MUTE    &kp LG(ESCAPE)  &kp F1        &kp F2        &kp F3        &kp F4        &kp F5  &kp F6           &kp F7     &kp F8     &kp F9      &kp F10           &kp F11            &kp F12             &kp A          &kp B       &mo 1  &kp A  &kp A  &kp A  &kp A  &kp A
+&bt BT_SEL 0  &kp GRAVE       &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp NUMBER_4  &kp N5  &kp NUMBER_6     &kp N7     &kp N8     &kp N9      &kp N0            &kp MINUS          &kp EQUAL           &kp BACKSPACE  &kp DEL     &kp A  &kp A  &kp A  &kp A  &kp A
+&bt BT_SEL 1  &kp TAB         &kp Q         &kp W         &kp E         &kp R         &kp T   &kp Y            &kp U      &kp I      &kp O       &kp P             &kp LEFT_BRACKET   &kp RIGHT_BRACKET   &kp BACKSLASH  &kp PG_UP   &kp A  &kp A  &kp A  &kp A  &kp A
+&bt BT_SEL 2  &kp CAPSLOCK    &kp A         &kp S         &kp D         &kp F         &kp G   &kp H            &kp J      &kp K      &kp L       &kp SEMICOLON     &kp SQT            &kp ENTER           &kp PAGE_DOWN  &kp A       &kp A  &kp A  &kp A
+&to 1         &kp LEFT_SHIFT  &kp Z         &kp X         &kp C         &kp V         &kp B   &kp N            &kp M      &kp COMMA  &kp PERIOD  &kp SLASH         &kp RSHIFT         &kp UP_ARROW        &kp A          &kp A       &kp A  &kp A  &kp A
+&to 2         &kp LCTRL       &kp LEFT_WIN  &kp LEFT_ALT  &mkp MB1      &mkp MB2      &mo 1   &lt 2 BACKSPACE  &kp SPACE  &kp LEFT   &kp DOWN    &kp RIGHT_ARROW   &kp A              &kp A               &kp A          &kp A
             >;
 
             sensor-bindings =
@@ -150,17 +164,17 @@
                 <&inc_dec_kp UP_ARROW DOWN_ARROW>,
                 <&inc_dec_kp LEFT_ARROW RIGHT_ARROW>,
                 <&inc_dec_kp UP_ARROW DOWN_ARROW>,
-                <&mouse_scrl SCRL_UP SCRL_DOWN>;
+                <&mouse_scrl>; /* 修正: 引数を削除 */
         };
 
-        SCROLL_SNIPE {
+        layer_6 {
             bindings = <
-&kp C_MUTE    &kp LG(ESCAPE)  &kp F1        &kp F2        &kp F3        &kp F4        &kp F5  &kp F6           &kp F7     &kp F8     &kp F9      &kp F10          &kp F11           &kp F12            &kp A          &kp B      &mo 1  &kp A  &kp A  &kp A  &kp A  &kp A
-&bt BT_SEL 0  &kp GRAVE       &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp NUMBER_4  &kp N5  &kp NUMBER_6     &kp N7     &kp N8     &kp N9      &kp N0           &kp MINUS         &kp EQUAL          &kp BACKSPACE  &kp DEL    &kp A  &kp A  &kp A  &kp A  &kp A
-&bt BT_SEL 1  &kp TAB         &kp Q         &kp W         &kp E         &kp R         &kp T   &kp Y            &kp U      &kp I      &kp O       &kp P            &kp LEFT_BRACKET  &kp RIGHT_BRACKET  &kp BACKSLASH  &kp PG_UP  &kp A  &kp A  &kp A  &kp A  &kp A
-&bt BT_SEL 2  &kp CAPSLOCK    &kp A         &kp S         &kp D         &kp F         &kp G   &kp H            &kp J      &kp K      &kp L       &kp SEMICOLON    &kp SQT           &kp ENTER          &kp PAGE_DOWN  &kp A      &kp A  &kp A  &kp A
-&to 1         &kp LEFT_SHIFT  &kp Z         &kp X         &kp C         &kp V         &kp B   &kp N            &kp M      &kp COMMA  &kp PERIOD  &kp SLASH        &kp RSHIFT        &kp UP_ARROW       &kp A          &kp A      &kp A  &kp A  &kp A
-&to 2         &kp LCTRL       &kp LEFT_WIN  &kp LEFT_ALT  &mkp MB1      &mkp MB2      &mo 1   &lt 2 BACKSPACE  &kp SPACE  &kp LEFT   &kp DOWN    &kp RIGHT_ARROW  &kp A             &kp A              &kp A          &kp A
+&kp C_MUTE    &kp LG(ESCAPE)  &kp F1        &kp F2        &kp F3        &kp F4        &kp F5  &kp F6           &kp F7     &kp F8     &kp F9      &kp F10           &kp F11            &kp F12             &kp A          &kp B       &mo 1  &kp A  &kp A  &kp A  &kp A  &kp A
+&bt BT_SEL 0  &kp GRAVE       &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp NUMBER_4  &kp N5  &kp NUMBER_6     &kp N7     &kp N8     &kp N9      &kp N0            &kp MINUS          &kp EQUAL           &kp BACKSPACE  &kp DEL     &kp A  &kp A  &kp A  &kp A  &kp A
+&bt BT_SEL 1  &kp TAB         &kp Q         &kp W         &kp E         &kp R         &kp T   &kp Y            &kp U      &kp I      &kp O       &kp P             &kp LEFT_BRACKET   &kp RIGHT_BRACKET   &kp BACKSLASH  &kp PG_UP   &kp A  &kp A  &kp A  &kp A  &kp A
+&bt BT_SEL 2  &kp CAPSLOCK    &kp A         &kp S         &kp D         &kp F         &kp G   &kp H            &kp J      &kp K      &kp L       &kp SEMICOLON     &kp SQT            &kp ENTER           &kp PAGE_DOWN  &kp A       &kp A  &kp A  &kp A
+&to 1         &kp LEFT_SHIFT  &kp Z         &kp X         &kp C         &kp V         &kp B   &kp N            &kp M      &kp COMMA  &kp PERIOD  &kp SLASH         &kp RSHIFT         &kp UP_ARROW        &kp A          &kp A       &kp A  &kp A  &kp A
+&to 2         &kp LCTRL       &kp LEFT_WIN  &kp LEFT_ALT  &mkp MB1      &mkp MB2      &mo 1   &lt 2 BACKSPACE  &kp SPACE  &kp LEFT   &kp DOWN    &kp RIGHT_ARROW   &kp A              &kp A               &kp A          &kp A
             >;
 
             sensor-bindings =
@@ -168,7 +182,7 @@
                 <&inc_dec_kp UP_ARROW DOWN_ARROW>,
                 <&inc_dec_kp LEFT_ARROW RIGHT_ARROW>,
                 <&inc_dec_kp UP_ARROW DOWN_ARROW>,
-                <&mouse_scrl SCRL_UP SCRL_DOWN>;
+                <&mouse_scrl>; /* 修正: 引数を削除 */
         };
     };
 };
