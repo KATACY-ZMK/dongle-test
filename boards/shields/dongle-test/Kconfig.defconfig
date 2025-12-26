@@ -1,4 +1,4 @@
-if SHIELD_DONGLE_NUM
+if SHIELD_DONGLETEST_NUM
 
 config ZMK_KEYBOARD_NAME
     default "dongle-test_num"
@@ -11,7 +11,7 @@ config ZMK_SPLIT_ROLE_CENTRAL
 
 endif
 
-if SHIELD_DONGLE_L
+if SHIELD_DONGLETEST_L
 
 config ZMK_KEYBOARD_NAME
     default "dongle-test_l"
@@ -21,7 +21,7 @@ config ZMK_SPLIT
 
 endif
 
-if SHIELD_DONGLE_R
+if SHIELD_DONGLETEST_R
 
 config ZMK_KEYBOARD_NAME
     default "dongle-test_r"
