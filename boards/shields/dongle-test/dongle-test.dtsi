@@ -8,7 +8,8 @@
     };
 };
 
-
+//matrix transoform
+/ {
     default_transform: keymap_transform0 {
         compatible = "zmk,matrix-transform";
         columns = <24>;
@@ -22,6 +23,7 @@
         RC(6,0)     RC(6,1) RC(6,2) RC(6,3) RC(6,4)     RC(6,5) RC(5,6)     RC(6,8) RC(6,9)                                     RC(6,10) RC(6,11) RC(6,12)   RC(5,16) RC(5,17) RC(5,18) RC(5,19) 
         >;
     };
+};
 
 // kscan
 / {
