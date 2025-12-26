@@ -1,33 +1,26 @@
 #include "dongle-test.dtsi"
+
 &default_transform {
     col-offset = <16>;
 };
 
+&kscan0 {
+    compatible = "zmk,kscan-gpio-charlieplex";
 
-    &kscan0 {
-        compatible = "zmk,kscan-gpio-charlieplex";
+    // Charlieplex用 8ピン定義 (IO0–IO7)
+    gpios =
+        <&xiao_d 10 GPIO_ACTIVE_HIGH>, // IO0
+        <&xiao_d  9 GPIO_ACTIVE_HIGH>, // IO1
+        <&xiao_d  8 GPIO_ACTIVE_HIGH>, // IO2
+        <&xiao_d  7 GPIO_ACTIVE_HIGH>, // IO3
+        <&xiao_d  6 GPIO_ACTIVE_HIGH>, // IO4
+        <&xiao_d  3 GPIO_ACTIVE_HIGH>, // IO5
+        <&xiao_d  2 GPIO_ACTIVE_HIGH>, // IO6
+        <&xiao_d  0 GPIO_ACTIVE_HIGH>; // IO7
 
-        // Charlieplex用 5ピン定義 (IO0–IO4)
-        gpios = 
-        <&xiao_d 10 GPIO_ACTIVE_HIGH>,  // IO0
-        <&xiao_d 9 GPIO_ACTIVE_HIGH>,  // IO1
-        <&xiao_d 8 GPIO_ACTIVE_HIGH>,  // IO2
-        <&xiao_d 7 GPIO_ACTIVE_HIGH>,  // IO3
-        <&xiao_d 6 GPIO_ACTIVE_HIGH>,  // IO4
-        <&xiao_d 3 GPIO_ACTIVE_HIGH>,  // IO5
-        <&xiao_d 2 GPIO_ACTIVE_HIGH>,  // IO6
-        <&xiao_d 0 GPIO_ACTIVE_HIGH>;  // IO7
-
-
-        interrupt-gpios = <&xiao_d 1 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>; // IO2 = INTピン
-    };
-
-&num1_encoder {
-   status = "okay";
+    interrupt-gpios = <&xiao_d 1 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>; // INTピン
 };
 
-
-
-
-
-
+&num1_encoder {
+    status = "okay";
+};
