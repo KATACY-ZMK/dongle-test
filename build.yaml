@@ -18,12 +18,12 @@
 #
 ---
 include:
-  - board: seeeduino_xiao_ble
+  - board: xiao_ble
     shield: dongle-test_r
     snippet: studio-rpc-usb-uart
-  - board: seeeduino_xiao_ble
+  - board: xiao_ble
     shield: dongle-test_l
-  - board: seeeduino_xiao_ble
+  - board: xiao_ble
     shield: dongle-test_num
-  - board: seeeduino_xiao_ble
+  - board: xiao_ble
     shield: settings_reset
