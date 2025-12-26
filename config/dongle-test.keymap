@@ -41,7 +41,7 @@
         input-processors = <&zip_xy_scaler 1 4>, <&zip_xy_to_scroll_mapper>;
     };
 };
-
+/ {
     keymap {
         compatible = "zmk,keymap";
 
