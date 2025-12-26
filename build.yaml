@@ -19,7 +19,7 @@
 ---
 include:
   - board: xiao_ble
-    shield: dongle-test_r　
+    shield: dongle-test_r
   - board: xiao_ble
     shield: dongle-test_l
   - board: xiao_ble
