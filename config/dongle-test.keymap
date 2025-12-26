@@ -9,30 +9,50 @@
 #include <dt-bindings/zmk/input_transform.h>
 
 &trackball_listener {
+    /* * デフォルトの挙動（以下の条件に当てはまらない時）
+     * 3/2 = 1.5倍速。少し加速させる設定です。
+     */
     input-processors = <&zip_xy_scaler 3 2>;
 
+    /* Snipe（スナイプ）モード: 精密操作 */
     snipe {
-        layers = <3>;
+        layers = <3>; // レイヤー3が有効な時
+        /* 1/2 = 0.5倍速。通常の半分の速度でゆっくり動かします */
         input-processors = <&zip_xy_scaler 1 2>;
     };
 
+    /* Turbo（ターボ）モード: 高速移動 */
     turbo {
-        layers = <2>;
+        layers = <2>; // レイヤー2が有効な時
+        /* 5/2 = 2.5倍速。かなり速く動かします */
         input-processors = <&zip_xy_scaler 5 2>;
     };
 
+    /* Scroller（スクロール）モード: トラックボールで画面スクロール */
     scroller {
-        layers = <4>;
+        layers = <4>; // レイヤー4が有効な時
+        /* カーソル移動をスクロール操作に変換します（速度は等倍） */
         input-processors = <&zip_xy_to_scroll_mapper>;
     };
 
+    /* Scroller Warp: 高速スクロール */
     scroller_warp {
-        layers = <5>;
+        layers = <5>; // レイヤー5が有効な時
+        /* * 処理は左から順に適用されます。
+         * 1. 4/1 = 4倍速にする
+         * 2. その値をスクロール操作に変換する
+         * 結果：爆速スクロールになります
+         */
         input-processors = <&zip_xy_scaler 4 1>, <&zip_xy_to_scroll_mapper>;
     };
 
+    /* Scroller Snipe: 精密スクロール */
     scroller_snipe {
-        layers = <6>;
+        layers = <6>; // レイヤー6が有効な時
+        /* * 1. 1/4 = 0.25倍速にする
+         * 2. その値をスクロール操作に変換する
+         * 結果：ゆっくり細かいスクロールになります
+         */
         input-processors = <&zip_xy_scaler 1 4>, <&zip_xy_to_scroll_mapper>;
     };
 };
